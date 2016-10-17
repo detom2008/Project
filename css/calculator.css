@@ -1,0 +1,47 @@
+
+
+.row{
+	padding: 5px;
+	margin :5px;
+}
+
+.key{
+	text-align:center;
+	display: inline-block;
+	border :1px solid;
+	border-radius:10px;
+	border-color:red;
+	padding: 5px;	
+	width:10px;
+	height :20px;
+	color:blue;
+	background-color:grey;
+	font-size:12px;
+	font-family:"Courier New", Courier, monospace
+}
+
+.key:hover{
+	background-color:white;
+}
+
+.clear_key{
+	min-width:42px;
+}
+
+.screen{
+	display: inline-block;
+	max-width: 120px;
+	height:30px;
+	border-radius:10px;
+	background-color:black;	
+}
+
+.container{
+	position:fixed;
+	top:30%;
+	left:30%;
+	border:1px solid;
+	border-radius:10px;
+	width:150px;
+	background-color:pink;
+}

@@ -1,0 +1,64 @@
+.products_main{
+	position:absolute;
+	top:30%;
+	left:20%;
+	border:1px solid;
+	width:auto;
+	height:auto;
+}
+
+.row{
+	width:auto;
+	height:auto;
+}
+
+.product_container{
+	display:inline-block;
+	width:auto;
+	margin-left:auto;
+	margin:auto;
+	padding:10px;
+	
+}
+
+.product_image{
+	display:block;
+	margin:auto;	
+}
+
+.qty{
+	width:15px;
+	margin-left:5px;
+}
+
+.coupon{
+	width:auto;
+	margin-left:5px;
+}
+
+.btn_max{
+	width:100%;
+}
+
+table{
+   border: 1px solid black;
+}
+
+
+
+td{
+	border:none;
+}
+
+h4{
+	text-decoration:underline;
+	padding:none;
+	margin:none;
+}
+
+.cart{
+	position:fixed;
+	right:0px;
+	width:auto;
+	height:300px;
+}

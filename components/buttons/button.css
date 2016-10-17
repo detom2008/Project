@@ -1,0 +1,52 @@
+.button {
+	  display: inline-block;
+	  background: #81c1eb;	  
+	  font-family: Arial;
+	  height:30px;
+	  width:auto;
+	  font-size:20px;
+	  padding: 5px 10px 5px 10px;
+	  text-align:center;
+	  color: #ffffff;
+	  border: solid #1f628d 1px;
+	  text-decoration: none;
+	  border-radius: 10px;
+}
+
+a.button{
+	text-decoration: none;
+	display: inline-block;
+  
+}
+
+.button:hover {
+	background: #81c1eb;
+	background-image: linear-gradient(to bottom, #81c1eb, #a6cce6);
+	text-decoration: none;
+}
+
+
+.button:active {
+    color: orange;
+}
+
+.button-sm {
+	width:auto;
+	height:15px;
+	font-size:10px;
+	padding: 5px 10px 5px 10px;
+}
+
+.button-md{
+	width:auto;
+	height:25px;
+	font-size:15px;
+	padding: 5px 10px 5px 10px;
+}
+
+.button-lg {
+	width:auto;
+	height:30px;
+	font-size:20px;
+	padding: 10px 20px 10px 20px;
+}

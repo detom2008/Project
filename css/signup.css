@@ -1,0 +1,84 @@
+.form_main{
+	position:absolute;
+	top:40%;
+	left:20%;
+	border:0px solid;
+	width:auto;
+	height:auto;
+}
+
+{
+   /** max-width: 450px;**/
+    /**font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;**/
+}
+
+
+.form label{
+    display:block;
+    margin-bottom: 10px;
+}
+
+.form label > span{
+    float: left;
+    width: 200px;
+   /** color: #F072A9;**/
+    font-weight: bold;
+    font-size: 13px;
+}
+.form fieldset{
+    border-radius: 0px;
+
+    margin: 0px 0px 10px 0px;
+    border: 1px solid;
+    padding: 20px;
+    background: #ccc;
+}
+
+.form  textarea{
+    width:50px;
+    height:50px;
+}
+.form input[type=text],
+.form input[type=date],
+.form input[type=datetime],
+.form input[type=number],
+.form input[type=search],
+.form input[type=time],
+.form input[type=url],
+.form input[type=email],
+.form input[type=range],
+.form input[type=password],
+.form select, 
+.form textarea{
+    border: 1px solid black;
+    outline: none;
+    padding: 5px 8px 5px 8px;
+    background: white;
+    width:80%;
+}
+.form input[type=submit],
+.form  input[type=button]{
+    background: white;
+    border: 1px solid black;
+    padding: 5px 15px 5px 15px;
+    color: #blue;
+    border-radius: 3px;
+    border-radius: 3px;  
+    font-weight: bold;
+}
+.required{
+    color:red;
+    font-weight:normal;
+}
+
+.rlabel{
+	font-weight: bold;
+    font-size: 13px;
+}
+
+.hlabel{
+	font-weight: bold;
+    font-size: 20px;
+	text-decoration:underline;
+	padding-bottom:10px;
+}
