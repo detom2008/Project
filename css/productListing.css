@@ -26,6 +26,29 @@
 	margin:auto;	
 }
 
+button{
+	  background: #682D8B;	  
+	  font-family: Arial;
+	  width:auto;
+	  padding: 5px 10px 5px 10px;
+	  text-align:center;
+	  color: #ffffff;
+	  border: solid #1f628d 1px;
+	  text-decoration: none;
+	  border-radius: 10px;
+}
+
+button :hover {
+	background: #682D8B;
+	background-image: linear-gradient(to bottom, #682D8B, #5555B0);
+	text-decoration: none;
+}
+
+
+button:active {
+    color: red;
+}
+
 .qty{
 	width:15px;
 	margin-left:5px;
@@ -38,6 +61,12 @@
 
 .btn_max{
 	width:100%;
+}
+
+.btn_max:hover{
+	background: #682D8B;
+	background-image: linear-gradient(to bottom, #682D8B, #5555B0);
+	text-decoration: none;
 }
 
 table{

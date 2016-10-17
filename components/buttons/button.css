@@ -1,6 +1,6 @@
 .button {
 	  display: inline-block;
-	  background: #81c1eb;	  
+	  background: #682D8B;	  
 	  font-family: Arial;
 	  height:30px;
 	  width:auto;
@@ -20,8 +20,8 @@ a.button{
 }
 
 .button:hover {
-	background: #81c1eb;
-	background-image: linear-gradient(to bottom, #81c1eb, #a6cce6);
+	background: #682D8B;
+	background-image: linear-gradient(to bottom, #682D8B, #5555B0);
 	text-decoration: none;
 }
 

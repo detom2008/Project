@@ -1,6 +1,5 @@
 .form_main{
 	position:absolute;
-	top:40%;
 	left:20%;
 	border:0px solid;
 	width:auto;
@@ -21,7 +20,6 @@
 .form label > span{
     float: left;
     width: 200px;
-   /** color: #F072A9;**/
     font-weight: bold;
     font-size: 13px;
 }
