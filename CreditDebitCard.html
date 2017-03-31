@@ -4,7 +4,55 @@
 		<link rel="stylesheet" type="text/css" href="css/signup.css" media="screen">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
 		<title> </title> 
+		<script src="js/validator.js"></script>
+		<script>
+			window.onload = function(){	
+			var creditCardForm = document.getElementById('creditCardForm');
+			creditCardForm.addEventListener('submit', function (event) {
 			
+			var isInputNotEmpty =  !validator.isEmpty(document.getElementById('hName').value) && 
+			            			!validator.isEmpty(document.getElementById('ccNumber').value) &&
+			 					!validator.isEmpty(document.getElementById('cvv').value) && 
+			 					!validator.isEmpty(document.getElementById('email').value) &&
+			 					!validator.isEmpty(document.getElementById('phone').value);
+			 					
+			
+			var isCvvValid = validator.isLength (document.getElementById("cvv").value, 4);	
+							 
+		    var isCcValid = validator.isCreditCard(document.getElementById('ccNumber').value);
+		    
+			var expYear = [document.getElementById("expYear").selectedIndex].value;	
+			
+			var expMonth = 	[document.getElementById("expMonth").selectedIndex].value;		 	
+    		
+    		var today = new Date();
+    		
+    		var isExpired = false;
+    		
+    		if(expYear < today.getYear())
+    			isExpired = true;
+    		else if
+    			(expYear === today.getYear())
+    			{
+    				isExpired = today.getMonth() > expMonth;
+    			}
+    		
+    		event.preventDefault();
+    		console.log(isInputNotEmpty + " isInputNotEmpty");
+    		console.log(isCvvValid + " isCvvValid");
+    		console.log(isCcValid + " isCcValid");
+    		console.log(isExpired + " isExpired");
+    		if ((isInputNotEmpty===false) || (isCvvValid===false) || (isCcValid===false) || (isExpired===false))
+    			document.getElementById('creditCardForm').className = 'invalid'
+    			else
+    			{
+    				console.log("in else");
+				document.getElementById('creditCardForm').className = 'valid';
+				
+				}
+				});
+			}
+		</script>	
 	</head> 
 	
 	<body>		
@@ -43,13 +91,13 @@
 				
 				<!--Signup Form Markup -->	
 							<div class="form">
-								<form >
+								<form id = "creditCardForm">
 								<fieldset>
-									<label for="Name"><span>Card Holders Name</span><input type="text" class="input-field" name="hname" value="" /></label>
-									<label for="ccNumber"><span>Card Number</span><input type="text" class="input-field" name="ccnumber" maxlength="19" value="" /></label>
-									<label for="cvv"><span>CVVC Number</span><input type="text" class="input-field" name="cvv" maxlength="4" value="" /></label>
+									<label for="Name"><span>Card Holders Name</span><input type="text" class="input-field" name="hname" id="hName" /></label>
+									<label for="ccNumber"><span>Card Number</span><input type="text" class="input-field" name="ccnumber" maxlength="19" id="ccNumber" /></label>
+									<label for="cvv"><span>CVVC Number</span><input type="text" class="input-field" name="cvv" maxlength="4" id = "cvv" /></label>
 									<label for="expMonth"><span>Expiration Month</span>
-										<select name="expMonth" class="select-field">
+										<select name="expMonth" class="select-field" id = "expMonth">
 											<option value="1">1</option>
 											<option value="2">2</option>
 											<option value="3">3</option>
@@ -65,7 +113,7 @@
 										</select>
 									</label>
 									<label for="expYear"><span>Expiration Year</span>
-										<select name="expMonth" class="select-field">
+										<select name="expYear" class="select-field" id = "expYear">
 											<option value="2016">2016</option>
 											<option value="2017">2017</option>
 											<option value="2018">2018</option>

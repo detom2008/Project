@@ -4,6 +4,32 @@
 		<link rel="stylesheet" type="text/css" href="css/signup.css" media="screen">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
 		<title> </title> 
+		<script src="js/validator.js"></script>
+		<script>
+			window.onload = function(){	
+			var loginForm = document.getElementById('loginForm');
+			loginForm.addEventListener('submit', function (event) {
+			
+			var isInputNotEmpty =  !validator.isEmpty(document.getElementById('userName').value) && 
+			            		!validator.isEmpty(document.getElementById('pwd').value) &&
+			 					!validator.isEmpty(document.getElementById('dob').value);
+			 					
+			var isDobValid = validator.isDate(document.getElementById('dob').value) &&
+							 validator.isBeforeToday(document.getElementById('dob').value);
+							 
+			var isPwdValid = validator.isLength(document.getElementById('pwd').value, 8) &&
+							 validator.isOfLength(document.getElementById('pwd').value, 6);	
+    		
+    		event.preventDefault();
+
+    		if (!isInputNotEmpty || !isDobValid || !isPwdValid)
+    			document.getElementById('lForm').className = 'invalid';
+    			else
+				document.getElementById('lForm').className = 'valid';
+
+				});
+			}
+		</script>
 			
 	</head> 
 	
@@ -42,12 +68,12 @@
 						
 				
 				<!--Signup Form Markup -->	
-							<div class="form">
-								<form >
+							<div class="form" id="loginForm">
+								<form id ='lForm'>
 								<fieldset>
-									<label for="userName"><span>UserName <span class="required">*</span></span><input type="text" class="input-field" name="UserName" value="" /></label>
-									<label for="dob"><span>Birthday <span class="required">*</span></span><input type="date" class="input-field" name="dob" value="" /></label>
-									<label for="pwd"><span>Password <span class="required">*</span></span><input type="password" class="input-field" name="pwd" value="" /></label>
+									<label for="userName"><span>UserName <span class="required">*</span></span><input type="text" class="input-field" name="UserName" id="userName" /></label>
+									<label for="dob"><span>Birthday <span class="required">*</span></span><input type="date" class="input-field" name="dob" id="dob"/></label>
+									<label for="pwd"><span>Password <span class="required">*</span></span><input type="password" class="input-field" name="pwd" id="pwd" /></label>
 									<label><input type="submit" value="Submit" /></label>
 								</fieldset>
 								</form>

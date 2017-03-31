@@ -4,6 +4,35 @@
 		<link rel="stylesheet" type="text/css" href="css/signup.css" media="screen">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
 		<title> </title> 
+		<script src="js/validator.js"></script>
+		<script>
+			window.onload = function(){	
+			var scheduleForm = document.getElementById('scheduleForm');
+			scheduleForm.addEventListener('submit', function (event) {
+			
+			var isInputNotEmpty =  !validator.isEmpty(document.getElementById('date').value) && 
+			            			!validator.isEmpty(document.getElementById('time').value) &&
+			 					!validator.isEmpty(document.getElementById('message').value) && 
+			 					!validator.isEmpty(document.getElementById('email').value) &&
+			 					!validator.isEmpty(document.getElementById('phone').value);
+			 					
+			var isDateValid = validator.isDate(document.getElementById('date').value) &&
+							 validator.isBeforeToday(document.getElementById('date').value);
+							 
+			var isPhoneValid = validator.isPhoneNumber(document.getElementById('phone').value);
+							 	
+    		
+    		var isEmailValid = validator.isEmailAddress(document.getElementById('email').value);
+    		event.preventDefault();
+    		
+    		if (!isInputNotEmpty || !isDateValid || !isPhoneValid || !isEmailValid)
+    			document.getElementById('sForm').className = 'invalid';
+    			else
+				document.getElementById('sForm').className = 'valid';
+
+				});
+			}
+		</script>
 			
 	</head> 
 	
@@ -42,11 +71,11 @@
 						
 				
 				<!--Signup Form Markup -->	
-							<div class="form">
-								<form >
+							<div class = "form" id="scheduleForm">
+								<form id ='sForm'>
 								<fieldset>
-									<label for="Date"><span>Date</span><input type="date" class="input-field" name="date" value="" /></label>
-									<label for="Time"><span>Time</span><input type="time" class="input-field" name="time" value="" /></label>
+									<label for="Date"><span>Date</span><input type="date" class="input-field" name="date" id="date" /></label>
+									<label for="Time"><span>Time</span><input type="time" class="input-field" name="time" id="time" /></label>
 									<label for="timezone"><span>TimeZone</span>
 										<select name="timezone" class="select-field">
 											<option value="GMT">GMT</option>
@@ -55,9 +84,9 @@
 											<option value="GMT_2">GMT-2</option>
 										</select>
 									</label>
-									<label for="message"><span>Message </span><textarea name="message" class="textarea-field"></textarea></label>
-									<label for="email"><span>Email</span><input type="email" class="input-field" name="email" value="" /></label>
-									<label for="contactNo"><span>Contact Number</span><input type="text" class="input-field" name="contactNo" value="" /></label>
+									<label for="message"><span>Message </span><textarea name="message" class="textarea-field" id = "message"></textarea></label>
+									<label for="email"><span>Email</span><input type="email" class="input-field" name="email" id="email" /></label>
+									<label for="contactNo"><span>Contact Number</span><input type="text" class="input-field" name="contactNo" id="phone" /></label>
 									
 									<label><input type="submit" value="Submit" /></label>
 								</fieldset>

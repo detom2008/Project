@@ -4,6 +4,43 @@
 		<link rel="stylesheet" type="text/css" href="css/signup.css" media="screen">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
 		<title> </title> 
+			<script src="js/validator.js"></script>
+			<script>
+			window.onload = function(){	
+			var shippingForm = document.getElementById('shippingForm');
+			shippingForm.addEventListener('submit', function (event) {
+			
+			var isShippingInputNotEmpty =  !validator.isEmpty(document.getElementById('sFname').value) && 
+			            		!validator.isEmpty(document.getElementById('sLname').value) &&
+			 					!validator.isEmpty(document.getElementById('sAddress1').value) && 
+			 					!validator.isEmpty(document.getElementById('sAddress2').value) &&
+			 					!validator.isEmpty(document.getElementById('sCity').value) &&
+			 					!validator.isEmpty(document.getElementById('sCountry').value) &&
+			 					!validator.isEmpty(document.getElementById('sDob').value);
+			 					
+			var isBillingSame = document.getElementById('bSame').checked;
+			
+			var isBillingInputNotEmpty = true;
+			
+			if (!isBillingSame) {
+				isBillingInputNotEmpty = !validator.isEmpty(document.getElementById('bFname').value) && 
+			            		!validator.isEmpty(document.getElementById('bLname').value) &&
+			 					!validator.isEmpty(document.getElementById('bAddress1').value) && 
+			 					!validator.isEmpty(document.getElementById('bAddress2').value) &&
+			 					!validator.isEmpty(document.getElementById('bCity').value) &&
+			 					!validator.isEmpty(document.getElementById('bCountry').value) &&
+			 					!validator.isEmpty(document.getElementById('bDob').value);
+			}
+			
+    		event.preventDefault();
+    		if (!isShippingInputNotEmpty || !isBillingInputNotEmpty)
+    			document.getElementById('shippingForm').className = 'invalid';
+    			else
+				document.getElementById('shippingForm').className = 'valid';
+			
+				});
+			}
+		</script>
 			
 	</head> 
 	
@@ -43,30 +80,30 @@
 				
 				<!--Signup Form Markup -->	
 							<div class="form">
-								<form >
+								<form id = "shippingForm">
 								<fieldset>
 									<label><span class='hlabel'>Shipping</span></label>
 									</br>
-									<label for="firstName"><span>First Name <span class="required">*</span></span><input type="text" class="input-field" name="firstName" value="" /></label>
-									<label for="lastName"><span>Last Name <span class="required">*</span></span><input type="text" class="input-field" name="lastName" value="" /></label>
-									<label for="address1"><span>Address Line 1 <span class="required">*</span></span><input type="text" class="input-field" name="Address1" value="" /></label>
-									<label for="address2"><span>Address Line 2 <span class="required">*</span></span><input type="text" class="input-field" name="Address2" value="" /></label>
-									<label for="address3"><span>Address Line 3 </span><input type="text" class="input-field" name="City" value="" /></label>
-									<label for="City"><span>City<span class="required">*</span></span><input type="text" class="input-field" name="dob" value="" /></label>
-									<label for="Country"><span>Country <span class="required">*</span></span><input type="text" class="input-field" name="Country" value="" /></label>
+									<label for="firstName"><span>First Name <span class="required">*</span></span><input type="text" class="input-field" name="firstName" id = "sFname" /></label>
+									<label for="lastName"><span>Last Name <span class="required">*</span></span><input type="text" class="input-field" name="lastName" id = "sLname" /></label>
+									<label for="address1"><span>Address Line 1 <span class="required">*</span></span><input type="text" class="input-field" name="Address1" id = "sAddress1" /></label>
+									<label for="address2"><span>Address Line 2 <span class="required">*</span></span><input type="text" class="input-field" name="Address2" id = "sAddress2" /></label>
+									<label for="address3"><span>Address Line 3 </span><input type="text" class="input-field" name="City" id="sCity" /></label>
+									<label for="City"><span>City<span class="required">*</span></span><input type="text" class="input-field" name="dob" id="sDob" /></label>
+									<label for="Country"><span>Country <span class="required">*</span></span><input type="text" class="input-field" name="Country" id="sCountry"  /></label>
 									</br>
-									<input type="checkBox" class="input-field" name="firstName" value="" /> <span class='rlabel'>Billing same as Shipping address </span>
+									<input type="checkBox" class="input-field" name="billingCheckBox" id = "bSame" /> <span class='rlabel'>Billing same as Shipping address </span>
 									</br>
 									</br>
 									<label><span class='hlabel'>Billing</span></label>
 									</br>
-									<label for="firstName"><span>First Name <span class="required">*</span></span><input type="text" class="input-field" name="firstName" value="" /></label>
-									<label for="lastName"><span>Last Name <span class="required">*</span></span><input type="text" class="input-field" name="lastName" value="" /></label>
-									<label for="address1"><span>Address Line 1 <span class="required">*</span></span><input type="text" class="input-field" name="Address1" value="" /></label>
-									<label for="address2"><span>Address Line 2 <span class="required">*</span></span><input type="text" class="input-field" name="Address2" value="" /></label>
-									<label for="address3"><span>Address Line 3 </span><input type="text" class="input-field" name="City" value="" /></label>
-									<label for="City"><span>City<span class="required">*</span></span><input type="text" class="input-field" name="dob" value="" /></label>
-									<label for="Country"><span>Country <span class="required">*</span></span><input type="text" class="input-field" name="Country" value="" /></label>
+									<label for="firstName"><span>First Name <span class="required">*</span></span><input type="text" class="input-field" name="firstName" id = "bFname"/></label>
+									<label for="lastName"><span>Last Name <span class="required">*</span></span><input type="text" class="input-field" name="lastName" id = "bLname" /></label>
+									<label for="address1"><span>Address Line 1 <span class="required">*</span></span><input type="text" class="input-field" name="Address1" id = "bAddress1" /></label>
+									<label for="address2"><span>Address Line 2 <span class="required">*</span></span><input type="text" class="input-field" name="Address2" id = "bAddress2"/></label>
+									<label for="address3"><span>Address Line 3 </span><input type="text" class="input-field" name="City" id="bCity" /></label>
+									<label for="City"><span>City<span class="required">*</span></span><input type="text" class="input-field" name="dob" id="bDob" /></label>
+									<label for="Country"><span>Country <span class="required">*</span></span><input type="text" class="input-field" name="Country" id="bCountry"/></label>
 									<label><input type="submit" value="Submit" /></label>
 								</fieldset>
 								</form>

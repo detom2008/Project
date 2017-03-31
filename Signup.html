@@ -4,7 +4,35 @@
 		<link rel="stylesheet" type="text/css" href="css/signup.css" media="screen">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
 		<title> </title> 
+		<script src="js/validator.js"></script>
+		<script>
+			window.onload = function(){	
+			var signupForm = document.getElementById('signupForm');
+			signupForm.addEventListener('submit', function (event) {
 			
+			var isInputNotEmpty =  !validator.isEmpty(document.getElementById('fName').value) && 
+			            		!validator.isEmpty(document.getElementById('lName').value) &&
+			 					!validator.isEmpty(document.getElementById('pwd').value) && 
+			 					!validator.isEmpty(document.getElementById('email').value);
+			 					
+			var isDobValid = validator.isDate(document.getElementById('dob').value) &&
+							 validator.isBeforeToday(document.getElementById('dob').value);
+							 
+			var isPwdValid = validator.isLength(document.getElementById('pwd').value, 8) &&
+							 validator.isOfLength(document.getElementById('pwd').value, 6);	
+    		
+    		var isEmailValid = validator.isEmailAddress(document.getElementById('email').value);
+    		event.preventDefault();
+    		
+    		if (!isInputNotEmpty || !isDobValid || !isPwdValid || !isEmailValid)
+    			document.getElementById('sForm').className = 'invalid';
+    			else
+				document.getElementById('sForm').className = 'valid';
+
+				});
+			}
+		</script>
+		
 	</head> 
 	
 	<body>		
@@ -42,15 +70,15 @@
 						
 				
 				<!--Signup Form Markup -->	
-							<div class="form">
-								<form >
+							<div class="form" id="signupForm">
+								<form id ="sForm">
 								<fieldset>
-									<label for="firstName"><span>First Name <span class="required">*</span></span><input type="text" class="input-field" name="firstName" value="" /></label>
-									<label for="lastName"><span>Last Name <span class="required">*</span></span><input type="text" class="input-field" name="lastName" value="" /></label>
-									<label for="email"><span>Email Address <span class="required">*</span></span><input type="email" class="input-field" name="email" value="" /></label>
-									<label for="dob"><span>Date of Birth <span class="required">*</span></span><input type="text" class="input-field" name="dob" value="" /></label>
-									<label for="pwd"><span>Password <span class="required">*</span></span><input type="password" class="input-field" name="pwd" value="" /></label>
-									<label><input type="submit" value="Submit" /></label>
+									<label for="firstName"><span>First Name <span class="required">*</span></span><input type="text" class="input-field" name="firstName" id = "fName"/></label>
+									<label for="lastName"><span>Last Name <span class="required">*</span></span><input type="text" class="input-field" name="lastName" value="" id ="lName"/></label>
+									<label for="email"><span>Email Address <span class="required">*</span></span><input type="email" class="input-field" name="email" value="" id ="email"/></label>
+									<label for="dob"><span>Date of Birth <span class="required">*</span></span><input type="text" class="input-field" name="dob" value="" id ="dob"/></label>
+									<label for="pwd"><span>Password <span class="required">*</span></span><input type="password" class="input-field" name="pwd" value="" id ="pwd"/></label>
+									<label><input type="submit" value="Submit" id="submit"/></label>
 								</fieldset>
 								</form>
 							</div>

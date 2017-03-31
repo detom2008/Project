@@ -4,6 +4,23 @@
 		<link rel="stylesheet" type="text/css" href="css/signup.css" media="screen">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
 		<title> </title> 
+		<script src="js/validator.js"></script>
+		<script>
+			window.onload = function(){	
+			var questionForm = document.getElementById('qForm');
+			questionForm.addEventListener('submit', function (event) {
+			var iceCream = getRVBN('icecream');
+			var isInputNotEmpty =  ['Chocolate', 'Vanilla', 'Strawberry', 'Cookies and Cream'].indexOf(iceCream);		
+    		event.preventDefault();
+
+    		if (isInputNotEmpty === -1)
+    			document.getElementById('qForm').className = 'invalid';
+    			else
+				document.getElementById('qForm').className = 'valid';
+
+				});
+			}
+		</script>	
 			
 	</head> 
 	
@@ -43,7 +60,7 @@
 				
 				<!--Signup Form Markup -->	
 							<div class="form">
-								<form >
+								<form id = "qForm">
 								<fieldset>
 									<label ><span>What's your favourite ice-cream flavour  </span></label></br>
 									<input type="radio" class="input-field" name="icecream" value="Chocolate" /><span class='rlabel'>Chocolate</span></br>

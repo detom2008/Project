@@ -4,7 +4,24 @@
 		<link rel="stylesheet" type="text/css" href="css/signup.css" media="screen">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
 		<title> </title> 
+		<script src="js/validator.js"></script>
+		<script>
+			window.onload = function(){	
+			var searchForm = document.getElementById('sForm');
+			searchForm.addEventListener('submit', function (event) {
 			
+			var isInputNotEmpty =  !validator.isEmpty(document.getElementById('search').value);
+			 					
+    		event.preventDefault();
+
+    		if (!isInputNotEmpty)
+    			document.getElementById('sForm').className = 'invalid';
+    			else
+				document.getElementById('sForm').className = 'valid';
+
+				});
+			}
+		</script>	
 	</head> 
 	
 	<body>		
@@ -43,9 +60,9 @@
 				
 				<!--Signup Form Markup -->	
 							<div class="form">
-								<form >
+								<form id="sForm">
 								<fieldset>
-									<label for="search"><span>Enter Search Field <span class="required">*</span></span><input type="text" class="input-field" name="search" value="" /></label>
+									<label for="search"><span>Enter Search Field <span class="required">*</span></span><input type="text" class="input-field" name="search" id='search'/></label>
 									<label for="category"><span>Category</span>
 										<select name="category" class="select-field">
 											<option value="Category1">Category One</option>
