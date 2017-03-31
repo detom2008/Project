@@ -63,7 +63,7 @@ Calculator.prototype = {
         } else {
             this.total = this.current;
         }
-        console.log("total: " + this.total);
+       console.log("total: " + this.total);
     },
     equals: function() {
         this.calculate();
@@ -89,6 +89,7 @@ Calculator.prototype = {
         console.log("current: " + this.current);
     },
     updateDisplay: function(value) {
+    	var displayValue= value;
         document.getElementsByClassName("screen")[0].value = value;
     }
 };	
@@ -104,10 +105,10 @@ for(var s=0; s<spans.length; s++){
       
         switch (raw) {
         case "C":
-            calc.clear();
+            calc.allClear();
             break;
         case "DEL":
-            calc.allClear();
+            calc.clear();
             break;
         case "X":
             calc.multiply();
